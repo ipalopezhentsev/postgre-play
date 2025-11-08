@@ -3,12 +3,18 @@ server:
 spring:
   application:
     name: "postgre-server"
+  datasource:
+    url: jdbc:postgresql://${POSTGRESQL_SERVER}:5432/${POSTGRESQL_DB}
+    username: ${POSTGRESQL_USER}
+    password: ${POSTGRESQL_PWD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
   threads:
     virtual:
       enabled: true
-  mvc:
-    async:
-      request-timeout: 1h
 
 management:
   metrics:

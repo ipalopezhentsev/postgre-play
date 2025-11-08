@@ -2,14 +2,17 @@ include:
   - compose-infra.yaml
 
 services:
-  publisher:
-    image: ru.ipal.postgre-server:latest
+  server:
+    image: ru.ipal.postgresql-server:latest
     mem_limit: 4g
     ports:
       - "8081:8081"
     # restart: unless-stopped
     environment:
       POSTGRESQL_SERVER: ${POSTGRESQL_SERVER}
+      POSTGRESQL_USER: ${POSTGRESQL_USER}
+      POSTGRESQL_PWD: ${POSTGRESQL_PWD}
+      POSTGRESQL_DB: ${POSTGRESQL_DB}
       JAVA_TOOL_OPTIONS: >-
         -XX:+UseCompactObjectHeaders
         -XX:MaxRAMPercentage=75

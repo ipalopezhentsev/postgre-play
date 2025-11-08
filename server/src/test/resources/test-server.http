@@ -1,5 +1,14 @@
+### 
+POST http://localhost:8081/api/items
+Content-Type: application/json
+
+{
+    "name": "Test Item"
+}
+
 ###
-POST http://localhost:8081/greet?name=ilya6
+GET http://localhost:8081/api/items/1
+
 
 ###
 GET http://localhost:8081/actuator/health
